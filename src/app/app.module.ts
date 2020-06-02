@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {APP_BASE_HREF} from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { FooterComponent } from './pages/footer/footer.component';
 import { PublicacionComponent } from './pages/publicacion/publicacion.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { AcercaComponent } from './pages/acerca/acerca.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,12 @@ import { AcercaComponent } from './pages/acerca/acerca.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule
   ],
-  providers: [],
+  providers: [
+    {provide: APP_BASE_HREF, useValue : '/' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
